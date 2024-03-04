@@ -21,6 +21,13 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(`el-icon-${toLine(key)}`, component);
 }
 
+
+
+// 引入全局注册的自定义组件
+import mUI from "./components"
+
+app.use(mUI)
+
 app.use(ElementPlus);
 app.use(router);
 app.mount("#app");

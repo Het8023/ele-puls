@@ -1,9 +1,6 @@
-
-
 <template>
   <router-view></router-view>
 </template>
-
 
 <script setup lang="ts"></script>
 <style lang="scss">
@@ -20,8 +17,7 @@ svg {
 html,
 body,
 #app,
-.el-container,
-.el-menu {
+.el-container {
   height: 100vh;
 }
 </style>
