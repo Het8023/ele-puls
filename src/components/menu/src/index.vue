@@ -1,43 +1,19 @@
 <template>
   <div>
-    <el-menu
-      class="el-menu-vertical-demo"
-      :default-active="defaultActive"
-      :router="router"
-      v-bind="$attrs"
-    >
-      <template v-for="(item, index) in data" :key="index">
-        <el-menu-item
-          :index="item.index"
-          v-if="!item.children || !item.children.length"
-        >
-          <component
-            v-if="item.icon"
-            :is="`el-icon-${toLine(item.icon)}`"
-          ></component>
+    <el-menu class="el-menu-vertical-demo" :default-active="defaultActive" :router="router" v-bind="$attrs">
+      <template v-for="(item, index) in data">
+        <el-menu-item :key="index" :index="item.index" v-if="!item.children || !item.children.length">
+          <component v-if="item.icon" :is="`el-icon-${toLine(item.icon)}`"></component>
           <span>{{ item.name }}</span>
         </el-menu-item>
 
-        <el-sub-menu
-          v-if="item.children && item.children.length"
-          :index="item.index"
-        >
+        <el-sub-menu v-if="item.children && item.children.length" :index="item.index">
           <template #title>
-            <component
-              v-if="item.icon"
-              :is="`el-icon-${toLine(item.icon)}`"
-            ></component>
+            <component v-if="item.icon" :is="`el-icon-${toLine(item.icon)}`"></component>
             <span>{{ item.name }}</span>
           </template>
-          <el-menu-item
-            v-for="(item1, index1) in item.children"
-            :key="index1"
-            :index="item1.index"
-          >
-            <component
-              v-if="item1.icon"
-              :is="`el-icon-${toLine(item1.icon)}`"
-            ></component>
+          <el-menu-item v-for="(item1, index1) in item.children" :key="index1" :index="item1.index">
+            <component v-if="item1.icon" :is="`el-icon-${toLine(item1.icon)}`"></component>
             <span>{{ item1.name }}</span>
           </el-menu-item>
         </el-sub-menu>
@@ -77,6 +53,7 @@ svg {
   width: 1em;
   height: 1em;
 }
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   width: 200px;
 }
